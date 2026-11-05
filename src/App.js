@@ -51,10 +51,7 @@ export default function App() {
           selectedFriend={selectedFriend}
         />
         {showAddFriend && (
-          <FormAddFriend
-            onAddFriends={handleAddFriend}
-            onSelection={handleSelection}
-          />
+          <FormAddFriend onAddFriends={handleAddFriend} />
         )}
         <button
           className="button"

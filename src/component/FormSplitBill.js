@@ -2,13 +2,13 @@ import { useState } from "react"
 export default function FormSplitBill({selectedFriend , onSplitBill}){
     const [bill , setBill] = useState("")
     const [payByUser , setPayByUser] = useState("")
-    const payByFriend = bill?bill - payByUser:""
+    const payByFriend = bill && payByUser !== "" ? bill - payByUser : ""
     const [whoIsPaying , setWhoIsPaying] = useState("user")
 
 
     function handleSubmit(e){
         e.preventDefault()
-        if(!bill || !payByUser) return
+        if(!bill || payByUser === "") return
         onSplitBill(whoIsPaying === "user" ? payByFriend : -payByUser)
     }
     return(
